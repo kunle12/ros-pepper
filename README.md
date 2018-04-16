@@ -1,4 +1,4 @@
-# ros-hpc
+# ros-pepper
 ## Getting started
 Clone the repository into the home directory of your VM and navigate to the cloned directory.
 
