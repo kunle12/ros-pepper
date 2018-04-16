@@ -203,7 +203,7 @@
     version: release/kinetic/naoqi_bridge_msgs/0.0.8-0
 - git:
     local-name: naoqi_driver
-    uri: https://bitbucket.org/pepper_qut/naoqi_driver.git
+    uri: https://github.com/pepper-qut/naoqi_driver.git
 - git:
     local-name: naoqi_libqi
     uri: https://github.com/ros-naoqi/libqi-release.git
