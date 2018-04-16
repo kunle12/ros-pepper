@@ -1,0 +1,63 @@
+#!/bin/bash
+
+if [ -z "$ROS_WORKSPACE_ROOT" ]; then
+   echo '$ROS_WORKSPACE_ROOT not set. Setting to current directory'
+   export ROS_WORKSPACE_ROOT="$PWD"
+fi
+
+arg1=${1:---all}
+arg2=${2:-external.txt}
+
+pushd $ROS_WORKSPACE_ROOT &> /dev/null
+
+export PATH=$PATH:$ROS_WORKSPACE_ROOT/ros_toolchain_install/bin
+export PYTHONPATH=$PYTHONPATH:$ROS_WORKSPACE_ROOT/ros_toolchain_install/lib/python2.7/site-packages
+
+python -c "import yaml" &> /dev/null
+if [ $? == 1 ]; then
+   echo 'Pyyaml not installed. Installing...'
+   pip install --prefix=~/.local pyyaml
+fi
+
+if [ "$arg1" == "--external" ] || [ "$arg1" == "--all" ]; then
+   python build-external.py $arg2
+
+   if [ $? != 0 ]; then
+       echo 'Building external dependencies failed'
+       popd &> /dev/null
+       exit
+   fi
+fi
+
+if [ "$arg1" == "--fetch-ros" ] || [ "$arg1" == "--all" ]; then
+   if [ ! -f "$ROS_WORKSPACE_ROOT/ros_toolchain_install/bin/wstool" ]; then
+      echo "Unable to locate wstool in $ROS_WORKSPACE_ROOT/ros_toolchain_install/bin. Please run with either --external or --all first"
+      popd &> /dev/null
+      exit
+   fi
+
+   if [ -d "$ROS_WORKSPACE_ROOT/src" ]; then
+      wstool merge -y -t src ros_packages.install
+      wstool update -t src
+   else
+      wstool init src ros_packages.install
+   fi
+fi
+
+if [ "$arg1" == "--ros" ] || [ "$arg1" == "--all" ]; then
+   src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DCATKIN_ENABLE_TESTING=OFF -DCMAKE_INSTALL_PREFIX=$ROS_WORKSPACE_ROOT/ros_toolchain_install -j4
+   patch -N -s -p0 -i $ROS_WORKSPACE_ROOT/patches/ros-setup.patch
+fi
+
+if [ "$arg1" == "--clean" ]; then
+   echo "Removing: $ROS_WORKSPACE_ROOT/external"
+   rm -rf $ROS_WORKSPACE_ROOT/external
+   echo "Removing: $ROS_WORKSPACE_ROOT/src"
+   rm -rf $ROS_WORKSPACE_ROOT/src
+   echo "Removing: $ROS_WORKSPACE_ROOT/build_isolated"
+   rm -rf $ROS_WORKSPACE_ROOT/build_isolated
+   echo "Removing: $ROS_WORKSPACE_ROOT/devel_isolated"
+   rm -rf $ROS_WORKSPACE_ROOT/devel_isolated
+fi
+
+popd &> /dev/null

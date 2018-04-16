@@ -1,0 +1,113 @@
+- package:
+    name: poco
+    uri: https://pocoproject.org/releases/poco-1.6.1/poco-1.6.1.tar.gz
+    method: configure
+    flags: '--shared'
+- package:
+    name: apr
+    uri: https://archive.apache.org/dist/apr/apr-1.5.2.tar.gz
+    method: configure
+    flags: '--enable-static=no'
+- package:
+    name: apr-util
+    uri: https://archive.apache.org/dist/apr/apr-util-1.5.4.tar.gz
+    method: configure
+    flags: '--with-apr=$ROS_WORKSPACE_ROOT/ros_toolchain_install'
+- package:
+    name: apache-log4cxx
+    uri: http://apache.melbourneitmirror.net/logging/log4cxx/0.10.0/apache-log4cxx-0.10.0.tar.gz
+    method: configure
+    flags: '--with-apr=$ROS_WORKSPACE_ROOT/ros_toolchain_install --with-apr-util=$ROS_WORKSPACE_ROOT/ros_toolchain_install --enable-static=no'
+    patch: apache-log4cxx-memmove.patch
+- package:
+    name: console_bridge
+    uri: https://github.com/ros/console_bridge/archive/0.3.2.tar.gz
+    method: cmake
+- package:
+    name: yaml-cpp
+    uri: https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.5.3.tar.gz
+    method: cmake
+    flags: '-DBUILD_SHARED_LIBS=ON'
+- package:
+    name: urdfdom-headers
+    uri: https://github.com/ros/urdfdom_headers/archive/0.4.2.tar.gz
+    method: cmake
+- package:
+    name: urdfdom
+    uri: https://github.com/ros/urdfdom/archive/0.4.2.tar.gz
+    method: cmake
+- package:
+    name: netifaces
+    uri: https://pypi.python.org/packages/source/n/netifaces/netifaces-0.10.4.tar.gz
+    method: python
+- package:
+    name: sip
+    uri: https://sourceforge.net/projects/pyqt/files/sip/sip-4.19.8/sip-4.19.8.tar.gz
+    method: custom
+    flags: 'python configure.py --configuration configuration --sysroot $ROS_WORKSPACE_ROOT/ros_toolchain_install'
+    patch: sip-configuration.patch
+- package:
+    name: tinyxml2
+    uri: https://github.com/leethomason/tinyxml2/archive/6.0.0.tar.gz
+    method: cmake
+    flags: '-DCMAKE_BUILD_TESTING=OFF'
+- package:
+    name: opencv3
+    uri: https://github.com/opencv/opencv/archive/3.3.1.tar.gz
+    method: cmake
+    flags: '-DCPU_DISPATCH=SSSE3;SSE3 -DWITH_CUDA=OFF'
+- package:
+    name: rospkg
+    uri: https://github.com/ros-infrastructure/rospkg/archive/1.1.4.tar.gz
+    method: python
+- package:
+    name: defusedxml
+    uri: https://github.com/tiran/defusedxml/archive/v0.4.1.tar.gz
+    method: python
+- package:
+    name: empy
+    uri: http://www.alcyone.com/software/empy/empy-latest.tar.gz
+    method: python
+- package:
+    name: wstool
+    uri: https://github.com/vcstools/wstool/archive/0.1.17.tar.gz
+    method: python
+- package:
+    name: catkin_pkg
+    uri: https://github.com/ros-infrastructure/catkin_pkg/archive/0.4.1.tar.gz
+    method: python
+- package:
+    name: pyparsing
+    uri: https://pypi.python.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz
+    method: python
+- package:
+    name: bullet
+    uri: https://github.com/bulletphysics/bullet3/archive/2.84.tar.gz
+    method: cmake
+    flags: "-DBUILD_SHARED_LIBS=YES -DBUILD_BULLET2_DEMOS=OFF -DBUILD_CPU_DEMOS=OFF -DBUILD_OPENGL3_DEMOS=OFF -DBUILD_UNIT_TESTS=OFF -DUSE_GLUT=NO"
+- package:
+    name: SDL
+    uri: https://www.libsdl.org/release/SDL-1.2.15.tar.gz
+    method: configure
+- package:
+    name: SDL_image
+    uri: https://www.libsdl.org/projects/SDL_image/release/SDL_image-1.2.12.tar.gz
+    method: configure
+- package:
+    name: orocos-bfl
+    uri: http://people.mech.kuleuven.be/~tdelaet/bfl_tar/orocos-bfl-0.8.0-src.tar.bz2
+    method: cmake
+- package:
+    name: flann
+    uri: http://www.cs.ubc.ca/research/flann/uploads/FLANN/flann-1.8.4-src.zip
+    method: cmake
+- package:
+    name: qhull
+    uri: http://www.qhull.org/download/qhull-2015-src-7.2.0.tgz
+    method: cmake
+- package:
+    name: pcl
+    uri: https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
+    method: cmake
+    flags: -DWITH_OPENGL=OFF -DWITH_QT=OFF -DWITH_VTK=OFF -DWITH_PNG=OFF -DWITH_PCAP=OFF -DBUILD_tracking=NO -DWITH_OPENNI=NO -DWITH_OPENNI2=NO -DBUILD_visualization=NO
+    patch: pcl-force-ssse3.patch

@@ -1,0 +1,45 @@
+diff -ruN ros_toolchain_install-orig/_start.sh ros_toolchain_install/_start.sh
+--- ros_toolchain_install-orig/_start.sh	1970-01-01 10:00:00.000000000 +1000
++++ ros_toolchain_install/_start.sh	2018-04-12 10:14:56.223921413 +1000
+@@ -0,0 +1,4 @@
++#!/bin/bash
++
++source /home/nao/.bash_profile
++roslaunch pepper_qut pepper_full.launch
+diff -ruN ros_toolchain_install-orig/bin/rosrun ros_toolchain_install/bin/rosrun
+--- ros_toolchain_install-orig/bin/rosrun	2018-04-12 10:10:21.573014695 +1000
++++ ros_toolchain_install/bin/rosrun	2018-04-12 10:11:00.369945586 +1000
+@@ -65,7 +65,7 @@
+   if [[ `uname` == Darwin ]]; then
+     _perm="+111"
+   else
+-    _perm="/111"
++    _perm="+111"
+   fi
+   debug "Searching for $2 with permissions $_perm"
+   exepathlist="`find -L "${catkin_package_libexec_dirs[@]}" "$pkgdir" -name "$2" -type f  -perm "$_perm" ! -regex ".*$pkgdir\/build\/.*" | uniq`"
+diff -ruN ros_toolchain_install-orig/ros_start.py ros_toolchain_install/ros_start.py
+--- ros_toolchain_install-orig/ros_start.py	1970-01-01 10:00:00.000000000 +1000
++++ ros_toolchain_install/ros_start.py	2018-04-12 10:14:56.023895991 +1000
+@@ -0,0 +1,9 @@
++#!/usr/bin/env python
++
++import subprocess
++import os 
++
++path = os.path.dirname(os.path.realpath(__file__))
++
++sp = subprocess.Popen([path + "/_start.sh"], shell=True)
++sp.communicate()
+diff -ruN ros_toolchain_install-orig/share/rosbash/rosbash ros_toolchain_install/share/rosbash/rosbash
+--- ros_toolchain_install-orig/share/rosbash/rosbash	2018-04-12 10:10:21.682028551 +1000
++++ ros_toolchain_install/share/rosbash/rosbash	2018-04-12 10:11:18.151205493 +1000
+@@ -509,7 +509,7 @@
+     if [[ `uname` == Darwin ]]; then
+         perm="+111"
+     else
+-        perm="/111"
++        perm="+111"
+     fi
+     rosrun_args=("--prefix" "--debug")
+ 

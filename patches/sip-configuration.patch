@@ -1,0 +1,15 @@
+diff -ruN sip-4.19.8/configuration sip/configuration
+--- sip-4.19.8/configuration	1970-01-01 10:00:00.000000000 +1000
++++ sip/configuration	2018-03-26 11:33:09.904884724 +1000
+@@ -0,0 +1,10 @@
++# The target Python installation.
++py_platform = linux
++py_inc_dir = /usr/include/python%(py_major).%(py_minor)
++py_pylib_dir = /usr/lib/python%(py_major).%(py_minor)
++
++# Where SIP will be installed.
++sip_bin_dir = %(sysroot)/bin
++sip_inc_dir = %(sysroot)/include
++sip_module_dir = %(sysroot)/lib/python%(py_major).%(py_minor)/site-packages
++sip_sip_dir = %(sysroot)/share
+Binary files sip-4.19.8/siputils.pyc and sip/siputils.pyc differ

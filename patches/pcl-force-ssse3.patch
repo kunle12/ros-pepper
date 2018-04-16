@@ -1,0 +1,33 @@
+diff -ruN pcl-pcl-1.8.1/CMakeLists.txt pcl/CMakeLists.txt
+--- pcl-pcl-1.8.1/CMakeLists.txt	2017-08-08 16:04:14.000000000 +1000
++++ pcl/CMakeLists.txt	2018-04-16 09:29:19.734238827 +1000
+@@ -29,6 +29,9 @@
+ project(PCL)
+ string(TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWER)
+ 
++set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} "-msse3")
++set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-msse3")
++
+ ### ---[ Find universal dependencies
+ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules/" ${CMAKE_MODULE_PATH})
+ 
+diff -ruN pcl-pcl-1.8.1/cmake/pcl_find_sse.cmake pcl/cmake/pcl_find_sse.cmake
+--- pcl-pcl-1.8.1/cmake/pcl_find_sse.cmake	2017-08-08 16:04:14.000000000 +1000
++++ pcl/cmake/pcl_find_sse.cmake	2018-04-16 10:07:35.213982498 +1000
+@@ -64,7 +64,7 @@
+           __m128i va = _mm_loadu_si128 ((__m128i*)a);
+           __m128i vb = _mm_loadu_si128 ((__m128i*)b);
+           __m128i vc = _mm_cmpgt_epi64 (va, vb);
+-
++          No SSE4.2 for me.
+           _mm_storeu_si128 ((__m128i*)c, vc);
+           if (c[0] == -1LL && c[1] == 0LL)
+             return (0);
+@@ -86,6 +86,7 @@
+           const int mask = 123;
+           a = _mm_loadu_ps (vals);
+           b = a;
++	  No SSE4.1 for thee
+           b = _mm_dp_ps (a, a, mask);
+           _mm_storeu_ps (vals,b);
+           return (0);
