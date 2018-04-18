@@ -47,6 +47,8 @@ fi
 if [ "$arg1" == "--ros" ] || [ "$arg1" == "--all" ]; then
    src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -DCATKIN_ENABLE_TESTING=OFF -DCMAKE_INSTALL_PREFIX=$ROS_WORKSPACE_ROOT/ros_toolchain_install -j4
    patch -N -s -p0 -i $ROS_WORKSPACE_ROOT/patches/ros-setup.patch
+   chmod +x $ROS_WORKSPACE_ROOT/ros_toolchain_install/ros_start.py
+   chmod +x $ROS_WORKSPACE_ROOT/ros_toolchain_install/_start.sh
 fi
 
 if [ "$arg1" == "--clean" ]; then
