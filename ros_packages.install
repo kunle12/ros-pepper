@@ -180,11 +180,81 @@
     uri: https://github.com/ros-gbp/message_runtime-release.git
     version: release/kinetic/message_runtime/0.4.12-0
 - git:
-    local-name: navigation
-    uri: https://github.com/ros-planning/navigation.git
+    local-name: navigation/amcl
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/amcl/1.14.3-0
 - git:
-    local-name: navigation_msgs
-    uri: https://github.com/ros-planning/navigation_msgs.git
+    local-name: navigation/base_local_planner
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/base_local_planner/1.14.3-0
+- git:
+    local-name: navigation/carrot_planner
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/carrot_planner/1.14.3-0
+- git:
+    local-name: navigation/clear_costmap_recovery
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/clear_costmap_recovery/1.14.3-0
+- git:
+    local-name: navigation/costmap_2d
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/costmap_2d/1.14.3-0
+- git:
+    local-name: navigation/dwa_local_planner
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/dwa_local_planner/1.14.3-0
+- git:
+    local-name: navigation/fake_localization
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/fake_localization/1.14.3-0
+- git:
+    local-name: navigation/global_planner
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/global_planner/1.14.3-0
+- git:
+    local-name: navigation/map_server
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/map_server/1.14.3-0
+- git:
+    local-name: navigation/move_base
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/move_base/1.14.3-0
+- git:
+    local-name: navigation/move_slow_and_clear
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/move_slow_and_clear/1.14.3-0
+- git:
+    local-name: navigation/nav_core
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/nav_core/1.14.3-0
+- git:
+    local-name: navigation/navfn
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/navfn/1.14.3-0
+- git:
+    local-name: navigation/navigation
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/navigation/1.14.3-0
+- git:
+    local-name: navigation/robot_pose_ekf
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/robot_pose_ekf/1.14.3-0
+- git:
+    local-name: navigation/rotate_recovery
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/rotate_recovery/1.14.3-0
+- git:
+    local-name: navigation/voxel_grid
+    uri: https://github.com/ros-gbp/navigation-release.git
+    version: release/kinetic/voxel_grid/1.14.3-0
+- git:
+    local-name: navigation_msgs/map_msgs
+    uri: https://github.com/ros-gbp/navigation_msgs-release.git
+    version: release/kinetic/map_msgs/1.13.0-0
+- git:
+    local-name: navigation_msgs/move_base_msgs
+    uri: https://github.com/ros-gbp/navigation_msgs-release.git
+    version: release/kinetic/move_base_msgs/1.13.0-0
 - git:
     local-name: naoqi_bridge/naoqi_driver_py
     uri: https://github.com/ros-naoqi/naoqi_bridge-release.git

@@ -111,3 +111,7 @@
     method: cmake
     flags: -DWITH_OPENGL=OFF -DWITH_QT=OFF -DWITH_VTK=OFF -DWITH_PNG=OFF -DWITH_PCAP=OFF -DBUILD_tracking=NO -DWITH_OPENNI=NO -DWITH_OPENNI2=NO -DBUILD_visualization=NO
     patch: pcl-force-ssse3.patch
+- package:
+    name: pymongo
+    uri: https://files.pythonhosted.org/packages/a3/fe/826348375bfe2d11c96cdc7b7cbabbd84b8b15b62eb33638ee3241fca5f9/pymongo-3.6.1.tar.gz
+    method: python
