@@ -512,3 +512,9 @@
     local-name: xacro
     uri: https://github.com/ros-gbp/xacro-release.git
     version: release/kinetic/xacro/1.11.2-0
+- git:
+    local-name: pyride_common_msgs
+    uri: https://github.com/uts-magic-lab/pyride_common_msgs.git
+- git:
+    local-name: pyride_msg_bridge
+    uri: https://github.com/kunle12/pyride_msg_bridge
