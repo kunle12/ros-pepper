@@ -258,7 +258,7 @@
 - git:
     local-name: audio_common_msgs
     uri: https://github.com/ros-gbp/audio_common-release.git
-    version: releases/kinetic/audio_common_msgs/0.3.3-0
+    version: release/kinetic/audio_common_msgs/0.3.3-0
 - git:
     local-name: naoqi_bridge/naoqi_driver_py
     uri: https://github.com/ros-naoqi/naoqi_bridge-release.git
@@ -319,6 +319,7 @@
 - git:
     local-name: perception_pcl
     uri: https://github.com/ros-perception/perception_pcl.git
+    version: kinetic-devel
 - git:
     local-name: pepper_meshes
     uri: https://github.com/ros-naoqi/pepper_meshes-release.git
