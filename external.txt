@@ -27,7 +27,7 @@
     name: yaml-cpp
     uri: https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.5.3.tar.gz
     method: cmake
-    flags: '-DBUILD_SHARED_LIBS=ON'
+    flag: -DBUILD_SHARED_LIBS=OFF
 - package:
     name: urdfdom-headers
     uri: https://github.com/ros/urdfdom_headers/archive/0.4.2.tar.gz
@@ -106,6 +106,16 @@
     uri: http://www.qhull.org/download/qhull-2015-src-7.2.0.tgz
     method: cmake
 - package:
+    name: g2o
+    uri: https://github.com/RainerKuemmerle/g2o/archive/master.zip
+    method: cmake
+    flags: -DBUILD_WITH_MARCH_NATIVE=OFF -DG2O_BUILD_APPS=OFF -DG2O_BUILD_EXAMPLES=OFF -DG2O_USE_OPENGL=OFF -DBUILD_CSPARSE=ON
+- package:
+    name: gtsam
+    uri: https://github.com/borglab/gtsam/archive/4.0.0.tar.gz
+    method: cmake
+    flags: -DGTSAM_USE_SYSTEM_EIGEN=ON -DGTSAM_BUILD_EXAMPLES_ALWAYS=OFF -DGTSAM_BUILD_TESTS=OFF -DGTSAM_BUILD_UNSTABLE=OFF
+- package:
     name: pcl
     uri: https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
     method: cmake
@@ -115,3 +125,8 @@
     name: pymongo
     uri: https://files.pythonhosted.org/packages/a3/fe/826348375bfe2d11c96cdc7b7cbabbd84b8b15b62eb33638ee3241fca5f9/pymongo-3.6.1.tar.gz
     method: python
+- package:
+    name: rtabmap
+    uri: https://github.com/introlab/rtabmap/archive/master.zip
+    method: cmake
+    flags: -DWITH_QT=OFF -DCSPARSE_INCLUDE_DIR=$ROS_WORKSPACE_ROOT/ros_toolchain_install/include/g2o/EXTERNAL/csparse
