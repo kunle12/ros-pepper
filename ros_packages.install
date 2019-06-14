@@ -106,6 +106,14 @@
     uri: https://github.com/ros-gbp/geometry-release.git
     version: release/kinetic/eigen_conversions/1.11.9-0
 - git:
+    local-name: geometry/kdl_conversions
+    uri: https://github.com/ros-gbp/geometry-release.git
+    version: release/kinetic/kdl_conversions/1.11.9-0
+- git:
+    local-name: geometry/tf_conversions
+    uri: https://github.com/ros-gbp/geometry-release.git
+    version: release/kinetic/tf_conversions/1.11.9-0
+- git:
     local-name: geometry/tf
     uri: https://github.com/ros-gbp/geometry-release.git
     version: release/kinetic/tf/1.11.9-0
@@ -524,3 +532,6 @@
     local-name: pyride_msg_bridge
     uri: https://github.com/kunle12/pyride_msg_bridge.git
     version: basic
+- git:
+    local-name: rtabmap_ros
+    uri: https://github.com/introlab/rtabmap_ros.git
