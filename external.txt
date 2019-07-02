@@ -1,4 +1,8 @@
 - package:
+    name: eigen3
+    uri: http://bitbucket.org/eigen/eigen/get/3.2.10.tar.gz
+    method: cmake
+- package:
     name: poco
     uri: https://pocoproject.org/releases/poco-1.6.1/poco-1.6.1.tar.gz
     method: configure
@@ -21,7 +25,7 @@
     patch: apache-log4cxx-memmove.patch
 - package:
     name: console_bridge
-    uri: https://github.com/ros/console_bridge/archive/0.3.2.tar.gz
+    uri: https://github.com/ros/console_bridge/archive/0.2.7.tar.gz
     method: cmake
 - package:
     name: yaml-cpp
@@ -29,12 +33,17 @@
     method: cmake
     flag: -DBUILD_SHARED_LIBS=OFF
 - package:
+    name: tinyxml2
+    uri: https://github.com/leethomason/tinyxml2/archive/6.0.0.tar.gz
+    method: cmake
+    flags: '-DCMAKE_BUILD_TESTING=OFF'
+- package:
     name: urdfdom-headers
-    uri: https://github.com/ros/urdfdom_headers/archive/0.4.2.tar.gz
+    uri: https://github.com/ros/urdfdom_headers/archive/0.3.0.tar.gz
     method: cmake
 - package:
     name: urdfdom
-    uri: https://github.com/ros/urdfdom/archive/0.4.2.tar.gz
+    uri: https://github.com/ros/urdfdom/archive/0.3.0.tar.gz
     method: cmake
 - package:
     name: netifaces
@@ -47,13 +56,8 @@
     flags: 'python configure.py --configuration configuration --sysroot $ROS_WORKSPACE_ROOT/ros_toolchain_install'
     patch: sip-configuration.patch
 - package:
-    name: tinyxml2
-    uri: https://github.com/leethomason/tinyxml2/archive/6.0.0.tar.gz
-    method: cmake
-    flags: '-DCMAKE_BUILD_TESTING=OFF'
-- package:
-    name: opencv3
-    uri: https://github.com/opencv/opencv/archive/3.3.1.tar.gz
+    name: opencv2
+    uri: https://github.com/opencv/opencv/archive/2.4.13.6.tar.gz
     method: cmake
     flags: '-DCPU_DISPATCH=SSSE3;SSE3 -DWITH_CUDA=OFF'
 - package:
@@ -94,10 +98,6 @@
     uri: https://www.libsdl.org/projects/SDL_image/release/SDL_image-1.2.12.tar.gz
     method: configure
 - package:
-    name: orocos-bfl
-    uri: http://people.mech.kuleuven.be/~tdelaet/bfl_tar/orocos-bfl-0.8.0-src.tar.bz2
-    method: cmake
-- package:
     name: flann
     uri: http://www.cs.ubc.ca/research/flann/uploads/FLANN/flann-1.8.4-src.zip
     method: cmake
@@ -109,3 +109,11 @@
     name: pymongo
     uri: https://files.pythonhosted.org/packages/a3/fe/826348375bfe2d11c96cdc7b7cbabbd84b8b15b62eb33638ee3241fca5f9/pymongo-3.6.1.tar.gz
     method: python
+- package:
+    name: lz4
+    uri: https://github.com/lz4/lz4/archive/v1.9.1.tar.gz
+    method: make
+- package:
+    name: eigen3
+    uri: http://bitbucket.org/eigen/eigen/get/3.2.10.tar.gz
+    method: cmake

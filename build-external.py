@@ -51,7 +51,7 @@ def download(uri, local_name, retries=3):
         local_name = url.split('/')[-1]
     
     try:
-        req = urllib2.urlopen(uri)
+        req = urllib2.urlopen(uri, capath="/etc/ssl/certs")
         chunk = True
 
         with open(local_name, 'wb') as f:
