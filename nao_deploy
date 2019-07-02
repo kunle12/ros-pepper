@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ -z "$NAO_IP" ]; then
+	echo '$NAO_IP not set. Please set $NAO_IP to the IP of your robot'
+	exit
+fi
+
+if [ "$1" == "--full" ] || [ "$1" == "--core" ]; then
+	echo 'Installing ROS core systems'
+	pushd /home/nao/my_workspace
+        rsync -rl --progress /home/nao/ros-pepper/ros_toolchain_install/ nao@$NAO_IP:/home/nao/ros
+        popd &> /dev/null
+fi
+
+if [ "$1" != "--core" ]; then
+	echo 'Installing workspace'
+	pushd /home/nao/catkin_ws
+	catkin_make install
+	if [ $? -eq 0 ]; then
+		rsync -rl --progress /home/nao/catkin_ws/install/ nao@$NAO_IP:/home/nao/ros
+	else
+		echo 'Failed to build, pushing to robot aborted.'
+	fi	
+	popd &> /dev/null
+fi
