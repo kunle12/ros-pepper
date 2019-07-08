@@ -14,6 +14,9 @@ To build ROS simply run the build script. ***This process takes a long time!***
 ./build
 ```
 
+*NOTE* A custom 4GB swapfile is needed to compile the existing ROS stack.
+*NOTE* Need to manually install libyaml-cpp.a into /usr/lib directory.
+
 To make use of your ROS installation, you now need to source the ROS setup.bash script.
 
 ```
