@@ -112,6 +112,11 @@ def build(package, method, flags, make_flags='-j4'):
         system_call('python setup.py install --prefix={}/ros_toolchain_install'.format(path))
         os.chdir(path)
         return
+    elif method == 'raw':
+        print('\t\tcustom build...')
+        system_call(flags)
+        os.chdir(path)
+        return
 
     print('\t\tConfiguring...')
 

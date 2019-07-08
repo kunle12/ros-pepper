@@ -31,6 +31,9 @@
     uri: https://github.com/ros-gbp/class_loader-release.git
     version: release/kinetic/class_loader/0.3.8-0
 - git:
+    local-name: catkin_simple
+    uri: https://github.com/catkin/catkin_simple.git
+- git:
     local-name: cmake_modules
     uri: https://github.com/ros-gbp/cmake_modules-release.git
     version: release/kinetic/cmake_modules/0.4.1-0

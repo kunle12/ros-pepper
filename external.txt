@@ -20,6 +20,12 @@
     flags: '--with-apr=$ROS_WORKSPACE_ROOT/ros_toolchain_install --with-apr-util=$ROS_WORKSPACE_ROOT/ros_toolchain_install --enable-static=no'
     patch: apache-log4cxx-memmove.patch
 - package:
+    name: suitesparse
+    uri: https://github.com/jluttine/suitesparse/archive/v5.4.0.tar.gz
+    method: raw
+    flags: 'make install INSTALL=$ROS_WORKSPACE_ROOT/ros_toolchain_install LAPACK='
+    patch: suitesparse.patch
+- package:
     name: console_bridge
     uri: https://github.com/ros/console_bridge/archive/0.3.2.tar.gz
     method: cmake
