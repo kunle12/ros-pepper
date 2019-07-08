@@ -324,6 +324,7 @@
 - git:
     local-name: pcl_conversions
     uri: https://github.com/ros-perception/pcl_conversions.git
+    version: melodic-devel
 - git:
     local-name: pcl_msgs
     uri: https://github.com/ros-perception/pcl_msgs.git
