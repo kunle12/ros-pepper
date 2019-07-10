@@ -40,7 +40,8 @@ def system_call(command):
 
     DEVNULL = open(os.devnull, 'w')
 
-    process = subprocess.Popen(command.split(), env=os.environ, stdout=DEVNULL, stderr=subprocess.PIPE)
+    cmdargs = [a.replace('_sp_', ' ') for a in command.split()] # a hack to not to split portions of string with space (marked with '_sp_')
+    process = subprocess.Popen(cmdargs, env=os.environ, stdout=DEVNULL, stderr=subprocess.PIPE)
     result_code = process.wait()
 
     if result_code != 0:
@@ -113,7 +114,7 @@ def build(package, method, flags, make_flags='-j4'):
         os.chdir(path)
         return
     elif method == 'raw':
-        print('\t\tcustom build...')
+        print('\t\tcustom build with \'{}\''.format(flags))
         system_call(flags)
         os.chdir(path)
         return

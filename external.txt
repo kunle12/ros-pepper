@@ -23,7 +23,7 @@
     name: suitesparse
     uri: https://github.com/jluttine/suitesparse/archive/v5.4.0.tar.gz
     method: raw
-    flags: 'make install INSTALL=$ROS_WORKSPACE_ROOT/ros_toolchain_install LAPACK='
+    flags: 'make install INSTALL=$ROS_WORKSPACE_ROOT/ros_toolchain_install LAPACK=/usr/local/lib/liblapack.a_sp_/usr/lib/libgfortran.a'
     patch: suitesparse.patch
 - package:
     name: console_bridge
@@ -115,7 +115,7 @@
     name: g2o
     uri: https://github.com/RainerKuemmerle/g2o/archive/master.zip
     method: cmake
-    flags: -DBUILD_WITH_MARCH_NATIVE=OFF -DG2O_BUILD_APPS=OFF -DG2O_BUILD_EXAMPLES=OFF -DG2O_USE_OPENGL=OFF -DBUILD_CSPARSE=ON
+    flags: -DBUILD_WITH_MARCH_NATIVE=OFF -DG2O_BUILD_APPS=OFF -DG2O_BUILD_EXAMPLES=OFF -DG2O_USE_OPENGL=OFF -DLAPACK_LIBRARIES=/usr/local/lib/liblapack.a -DBUILD_CSPARSE=ON
 - package:
     name: gtsam
     uri: https://github.com/borglab/gtsam/archive/4.0.0.tar.gz
