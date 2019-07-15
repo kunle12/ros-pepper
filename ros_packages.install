@@ -25,7 +25,7 @@
 - git:
     local-name: catkin
     uri: https://github.com/ros-gbp/catkin-release.git
-    version: release/kinetic/catkin/0.7.8-0
+    version: release/kinetic/catkin/0.7.18-1
 - git:
     local-name: class_loader
     uri: https://github.com/ros-gbp/class_loader-release.git
@@ -36,7 +36,7 @@
 - git:
     local-name: cmake_modules
     uri: https://github.com/ros-gbp/cmake_modules-release.git
-    version: release/kinetic/cmake_modules/0.4.1-0
+    version: release/kinetic/cmake_modules/0.4.2-0
 - git:
     local-name: common_msgs/actionlib_msgs
     uri: https://github.com/ros-gbp/common_msgs-release.git

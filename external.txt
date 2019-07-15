@@ -4,6 +4,10 @@
     method: configure
     flags: '--shared'
 - package:
+    name: eigen3
+    uri: http://bitbucket.org/eigen/eigen/get/3.3.7.tar.gz
+    method: cmake
+- package:
     name: apr
     uri: https://archive.apache.org/dist/apr/apr-1.5.2.tar.gz
     method: configure
@@ -80,7 +84,7 @@
     method: python
 - package:
     name: catkin_pkg
-    uri: https://github.com/ros-infrastructure/catkin_pkg/archive/0.4.1.tar.gz
+    uri: https://github.com/ros-infrastructure/catkin_pkg/archive/0.4.12.tar.gz
     method: python
 - package:
     name: pyparsing
