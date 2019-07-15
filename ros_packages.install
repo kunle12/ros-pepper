@@ -539,3 +539,12 @@
 - git:
     local-name: rtabmap_ros
     uri: https://github.com/introlab/rtabmap_ros.git
+- git:
+    local-name: interactive_markers
+    uri: https://github.com/ros-visualization/interactive_markers.git
+- git:
+    local-name: costmap_converter
+    uri: https://github.com/rst-tu-dortmund/costmap_converter.git
+- git:
+    local-name: teb_local_planner
+    uri: https://github.com/kunle12/teb_local_planner.git
