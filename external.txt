@@ -23,7 +23,7 @@
     name: suitesparse
     uri: https://github.com/jluttine/suitesparse/archive/v5.4.0.tar.gz
     method: raw
-    flags: 'make install INSTALL=$ROS_WORKSPACE_ROOT/ros_toolchain_install LAPACK=/usr/local/lib/liblapack.a_sp_/usr/lib/libgfortran.a'
+    flags: 'make install INSTALL=$ROS_WORKSPACE_ROOT/ros_toolchain_install LAPACK=/usr/local/lib/liblapack.a_sp_/opt/gcc-4.9/lib/libgfortran.a_sp_/opt/gcc-4.9/lib/libquadmath.a BLAS=/usr/local/lib/libopenblas.a_sp_-lpthread'
     patch: suitesparse.patch
 - package:
     name: console_bridge
@@ -107,6 +107,7 @@
     name: flann
     uri: http://www.cs.ubc.ca/research/flann/uploads/FLANN/flann-1.8.4-src.zip
     method: cmake
+    patch: flann.patch
 - package:
     name: qhull
     uri: http://www.qhull.org/download/qhull-2015-src-7.2.0.tgz
