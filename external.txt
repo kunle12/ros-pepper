@@ -140,4 +140,4 @@
     name: rtabmap
     uri: https://github.com/introlab/rtabmap/archive/master.zip
     method: cmake
-    flags: -DWITH_QT=OFF -DCSPARSE_INCLUDE_DIR=$ROS_WORKSPACE_ROOT/ros_toolchain_install/include/g2o/EXTERNAL/csparse
+    flags: -DWITH_QT=OFF -DCSPARSE_INCLUDE_DIR=$ROS_WORKSPACE_ROOT/ros_toolchain_install/include/g2o/EXTERNAL/csparse -DOpenCV_DIR=$ROS_WORKSPACE_ROOT/ros_toolchain_install/share/OpenCV -DOpenCV_CONFIG_PATH=$ROS_WORKSPACE_ROOT/ros_toolchain_install/share/OpenCV
