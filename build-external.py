@@ -40,12 +40,17 @@ def system_call(command):
 
     DEVNULL = open(os.devnull, 'w')
 
-    cmdargs = [a.replace('_sp_', ' ') for a in command.split()] # a hack to not to split portions of string with space (marked with '_sp_')
-    process = subprocess.Popen(cmdargs, env=os.environ, stdout=DEVNULL, stderr=subprocess.PIPE)
-    result_code = process.wait()
+    commands = command.split(';')
+    for cmd in commands:
+        cmd = cmd.strip()
+        if len(cmd) == 0: # silly breaks
+            continue
+        cmdargs = [a.replace('_sp_', ' ') for a in cmd.split()] # a hack to not to split portions of string with space (marked with '_sp_')
+        process = subprocess.Popen(cmdargs, env=os.environ, stdout=DEVNULL, stderr=subprocess.PIPE)
+        result_code = process.wait()
 
-    if result_code != 0:
-        raise Exception('Failed to process command {} ({}) with error: {}'.format(command, result_code, process.communicate()[1]))
+        if result_code != 0:
+            raise Exception('Failed to process command {} ({}) with error: {}'.format(command, result_code, process.communicate()[1]))
 
 def download(uri, local_name, retries=3):
     if not local_name:
