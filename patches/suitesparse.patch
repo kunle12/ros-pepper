@@ -1,6 +1,6 @@
 diff -ruN suitesparse-5.4.0/Makefile suitesparse/Makefile
 --- suitesparse-5.4.0/Makefile	2019-02-17 21:48:57.000000000 +1000
-+++ suitesparse/Makefile	2019-07-08 20:05:01.588330230 +1000
++++ suitesparse/Makefile	2019-07-18 17:16:55.151952249 +1000
 @@ -12,7 +12,7 @@
  # Compile the default rules for each package
  go: metis
@@ -10,8 +10,12 @@ diff -ruN suitesparse-5.4.0/Makefile suitesparse/Makefile
  	( cd Mongoose  && $(MAKE) CMAKE_OPTIONS='$(CMAKE_OPTIONS)' )
  	( cd AMD && $(MAKE) )
  	( cd BTF && $(MAKE) )
-@@ -38,7 +38,7 @@
- # (note that CSparse is not installed; CXSparse is installed instead)
+@@ -35,10 +35,10 @@
+ #	( cd SKYLINE_SVD && $(MAKE) )
+ 
+ # install all packages in /usr/local/lib and /usr/local/include
+-# (note that CSparse is not installed; CXSparse is installed instead)
++# (note that CSparse is installed; CXSparse not is installed instead because we are on 32bit system for pepper)
  install: metisinstall
  	( cd SuiteSparse_config && $(MAKE) install )
 -	( cd GraphBLAS && $(MAKE) CMAKE_OPTIONS='$(CMAKE_OPTIONS)' install )
@@ -19,3 +23,39 @@ diff -ruN suitesparse-5.4.0/Makefile suitesparse/Makefile
  	( cd Mongoose  && $(MAKE) CMAKE_OPTIONS='$(CMAKE_OPTIONS)' install )
  	( cd AMD && $(MAKE) install )
  	( cd BTF && $(MAKE) install )
+@@ -46,7 +46,7 @@
+ 	( cd CCOLAMD && $(MAKE) install )
+ 	( cd COLAMD && $(MAKE) install )
+ 	( cd CHOLMOD && $(MAKE) install )
+-	( cd CXSparse && $(MAKE) install )
++	( cd CSparse && $(MAKE) install )
+ 	( cd LDL && $(MAKE) install )
+ 	( cd KLU && $(MAKE) install )
+ 	( cd UMFPACK && $(MAKE) install )
+@@ -116,7 +116,7 @@
+ # the static library
+ library: metis
+ 	( cd SuiteSparse_config && $(MAKE) )
+-	( cd GraphBLAS && $(MAKE) CMAKE_OPTIONS='$(CMAKE_OPTIONS)' library )
++	#( cd GraphBLAS && $(MAKE) CMAKE_OPTIONS='$(CMAKE_OPTIONS)' library )
+ 	( cd Mongoose  && $(MAKE) CMAKE_OPTIONS='$(CMAKE_OPTIONS)' library )
+ 	( cd AMD && $(MAKE) library )
+ 	( cd BTF && $(MAKE) library )
+@@ -128,7 +128,7 @@
+ 	( cd LDL && $(MAKE) library )
+ 	( cd UMFPACK && $(MAKE) library )
+ 	( cd CSparse && $(MAKE) library )
+-	( cd CXSparse && $(MAKE) library )
++	#( cd CXSparse && $(MAKE) library )
+ 	( cd RBio && $(MAKE) library )
+ ifneq (,$(GPU_CONFIG))
+ 	( cd SuiteSparse_GPURuntime && $(MAKE) library )
+@@ -155,7 +155,7 @@
+ 	( cd LDL && $(MAKE) static )
+ 	( cd UMFPACK && $(MAKE) static )
+ 	( cd CSparse && $(MAKE) static )
+-	( cd CXSparse && $(MAKE) static )
++	#( cd CXSparse && $(MAKE) static )
+ 	( cd RBio && $(MAKE) static )
+ ifneq (,$(GPU_CONFIG))
+ 	( cd SuiteSparse_GPURuntime && $(MAKE) static )
